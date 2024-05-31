@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ prefix }} Files</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Files with Prefix: {{ prefix }}</h1>
+        <div class="file-list">
+            <ul>
+                {% for table in tables %}
+                    <li><a href="{{ url_for('table', table_name=table[0]) }}">{{ table[0] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <a class="back-link" href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Database Viewer</h1>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <div class="prefix-list">
+            <h2>Prefixes</h2>
+            <ul>
+                {% for prefix, tables in prefixes.items() %}
+                    <li><a href="{{ url_for('files', prefix=prefix) }}">{{ prefix }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
